@@ -1,43 +1,46 @@
+[🇨🇳 中文](README.md) · [🇺🇸 English](README.en.md)
+
 # Trae Skill Creator
 
-A reusable Trae skill for creating, reviewing, and improving AI agent skills with evaluation-driven best practices.
+> 一个用于创建、审查与改进 AI Agent Skill 的可复用 Trae Skill，基于「评估驱动、失败优先」的最佳实践。
 
-This skill helps agent builders design skills that are easier to trigger correctly, safer to reuse, and simpler to maintain. It combines Claude-style skill design principles with Trae-oriented engineering constraints, emphasizing clear boundaries, structured inputs and outputs, executable steps, failure strategies, and single responsibility.
+A reusable Trae skill for creating, reviewing, and improving AI agent skills with evaluation-driven best practices.
 
 ![Source: Trae Docs](https://img.shields.io/badge/source-Trae%20Docs-blue)
 ![Source: Anthropic Claude](https://img.shields.io/badge/source-Anthropic%20Claude-191919)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-## What This Skill Does
+## 这个 Skill 做什么
 
-`trae-skill-creator` guides the creation and review of Trae skills through a practical framework:
+`trae-skill-creator` 通过一套实用框架，引导 Skill 的创建与审查：
 
-- Define a single core action for each skill
-- Write accurate trigger descriptions
-- Avoid vague or over-broad skill behavior
-- Design structured input and output expectations
-- Add failure handling instead of letting the agent improvise
-- Use evaluation-driven iteration to improve reliability
-- Split large guidance into reference files using progressive disclosure
+- 为每个 Skill 定义单一的核心动作
+- 写出更准确的触发描述（name + description）
+- 避免含糊或过于宽泛的行为边界
+- 设计结构化的输入与输出
+- 添加失败策略，避免模型临场发挥
+- 用评估驱动（evaluation-driven）的方式迭代改进
+- 用渐进披露（progressive disclosure）拆分大型说明
 
-## When To Use It
+## 何时使用它
 
-Use this skill when you want to:
+在以下场景使用：
 
-- Create a new Trae skill
-- Improve an existing Trae skill
-- Review a skill before publishing
-- Diagnose why a skill triggers incorrectly
-- Refactor a large skill into clearer, smaller skills
-- Build reusable agent workflows with stronger operational boundaries
+- 创建一个新的 Trae Skill
+- 改进一个已有的 Trae Skill
+- 发布前审查一个 Skill
+- 诊断 Skill 误触发、漏触发问题
+- 把一个大 Skill 拆成更聚焦的小 Skill
+- 搭建更稳健、可复用的 Agent 工作流
 
-## Repository Structure
+## 仓库结构
 
 ```text
 trae-skill-creator/
 ├── SKILL.md
 ├── LICENSE
 ├── README.md
+├── README.en.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── references/
@@ -48,63 +51,63 @@ trae-skill-creator/
     └── README.md
 ```
 
-## Installation
+## 安装
 
-Copy this folder into your Trae skills directory:
+把本目录复制到你的 Trae skills 目录下：
 
 ```text
 .trae/skills/trae-skill-creator/
 ```
 
-After installation, the skill can be triggered when working on skill creation, skill improvement, or skill review tasks.
+安装完成后，在涉及 Skill 创建、改进或审查的场景中即可自动触发。
 
-## Core Principles
+## 核心原则
 
-### 1. Claude Is Already Smart
+### 1. Claude 已经足够聪明
 
-Only add context the model actually lacks. Every instruction should earn its place in the context window.
+只补充模型真正缺失的上下文。每一句指令都要为上下文窗口「挣得位置」，否则不要写。
 
-### 2. Evaluation-Driven, Failure-First
+### 2. 评估驱动，失败优先
 
-Start from the cases where the model fails without a skill. A skill should solve observed failure modes, not encode speculative rules.
+从一个没有 Skill 的基线开始，记录模型在哪些场景会出错。Skill 是为了解决**已观察到的失败**，而不是为了把假设性规则全部塞进去。
 
-### 3. Single Responsibility
+### 3. 单一职责
 
-One skill should have one core action. If the skill name or description needs multiple unrelated verbs, split it into separate skills.
+一个 Skill 只做一件事。如果 Skill 的名字或描述需要多个互不相关的动词，就把它拆成多个 Skill。
 
-## Design Standards
+## 五项设计标准
 
-Every skill should be checked against five standards:
+每个 Skill 都应通过以下五项检查：
 
-1. Clear boundaries
-2. Structured input and output
-3. Executable steps
-4. Failure strategy
-5. Single responsibility
+1. 清晰的触发边界（positive + negative）
+2. 结构化的输入与输出
+3. 可执行的步骤（imperative，而非描述性）
+4. 明确的失败策略
+5. 单一职责
 
-See `SKILL.md` for the full checklist.
+完整检查清单见 `SKILL.md`。
 
-## Recommended Workflow
+## 推荐工作流
 
-1. Run the task without a skill and record failure points
-2. Write 3–5 evaluation cases
-3. Create a minimal skill that passes those cases
-4. Add boundaries, examples, and structured I/O
-5. Re-run all evals after every change
-6. Convert real-world failures into new eval cases
+1. 不加载 Skill，先执行目标任务，记录失败点
+2. 写 3–5 个评估用例（每个用例包含场景、通过条件、失败条件）
+3. 写一个最小可用的 Skill，让所有评估用例通过
+4. 增加触发边界、示例与结构化 I/O
+5. 每次改动后，重新跑全部评估
+6. 把真实环境中出现的新失败转成新的评估用例
 
-## Credits
+## Credits（致谢）
 
-This skill is built on top of publicly available official documentation and reference implementations from the projects below. The author gratefully acknowledges their work.
+本项目基于以下公开的官方文档与参考实现进行二次创作，作者对其工作深表感谢：
 
-- Trae official documentation — `https://docs.trae.ai/`
-- Anthropic Claude official documentation — `https://docs.claude.com/`
-- Anthropic Claude Skill Creator reference — `https://github.com/anthropics/skills`
+- Trae 官方文档 — `https://docs.trae.ai/`
+- Anthropic Claude 官方文档 — `https://docs.claude.com/`
+- Anthropic Claude Skill Creator 参考实现 — `https://github.com/anthropics/skills`
 
-This repository reinterprets, restructures, and extends the original concepts with evaluation-driven, failure-first workflows and Trae-specific engineering constraints. Where passages, structural patterns, or examples were reused from the official Anthropic Skill Creator, the original authorship is retained and credited accordingly.
+本仓库对原始概念进行重新组织与扩展，加入「评估驱动、失败优先」工作流与面向 Trae 的工程约束。对于复用自官方 Skill Creator 的段落、结构与示例，已保留原作者署名并在此致谢。
 
-If you believe proper credit has not been given, please open an issue and the README will be updated.
+如果你认为署名不充分，请提交 Issue，我们将第一时间更新 README。
 
 ## License
 
-MIT License. See `LICENSE` for details. Third-party notices are collected in `THIRD_PARTY_LICENSES/`.
+MIT License。详见 `LICENSE`。第三方声明汇总在 `THIRD_PARTY_LICENSES/`。
