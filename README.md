@@ -12,7 +12,7 @@ A reusable Trae skill for creating, reviewing, and improving AI agent skills wit
 ![Source: Anthropic Claude](https://img.shields.io/badge/source-Anthropic%20Claude-191919)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-## 这个 Skill 做什么
+## 本 Skill 的运作原理与步骤
 
 `trae-skill-creator` 通过一套实用框架，引导 Skill 的创建与审查：
 
@@ -24,16 +24,14 @@ A reusable Trae skill for creating, reviewing, and improving AI agent skills wit
 - 用评估驱动（evaluation-driven）的方式迭代改进
 - 用渐进披露（progressive disclosure）拆分大型说明
 
-## 何时使用它
-
-在以下场景使用：
+## 建议使用场景
 
 - 创建一个新的 Trae Skill
 - 改进一个已有的 Trae Skill
 - 发布前审查一个 Skill
 - 诊断 Skill 误触发、漏触发问题
 - 把一个大 Skill 拆成更聚焦的小 Skill
-- 搭建更稳健、可复用的 Agent 工作流
+- 搭建更稳健、可复用的 Trae Agent 工作流
 
 ## 仓库结构
 
@@ -65,13 +63,13 @@ trae-skill-creator/
 
 ## 核心原则
 
-### 1. Claude 已经足够聪明
+### 1. Agent 已经足够聪明
 
-只补充模型真正缺失的上下文。每一句指令都要为上下文窗口「挣得位置」，否则不要写。
+只补充模型真正缺失的上下文。每一句指令都要为上下文窗口「挣得位置」，否则不要写入。
 
 ### 2. 评估驱动，失败优先
 
-从一个没有 Skill 的基线开始，记录模型在哪些场景会出错。Skill 是为了解决**已观察到的失败**，而不是为了把假设性规则全部塞进去。
+从一个无 Trae Skill 的基线开始，记录模型在哪些场景会出错。Skill 是为了解决**已观察到的失败**，而不是为了把假设性规则全部塞进去。
 
 ### 3. 单一职责
 
@@ -91,7 +89,7 @@ trae-skill-creator/
 
 ## 推荐工作流
 
-1. 不加载 Skill，先执行目标任务，记录失败点
+1. 不依赖 Skill，先执行目标任务，记录失败点
 2. 写 3–5 个评估用例（每个用例包含场景、通过条件、失败条件）
 3. 写一个最小可用的 Skill，让所有评估用例通过
 4. 增加触发边界、示例与结构化 I/O
@@ -108,7 +106,7 @@ trae-skill-creator/
 
 本仓库对原始概念进行重新组织与扩展，加入「评估驱动、失败优先」工作流与面向 Trae 的工程约束。对于复用自官方 Skill Creator 的段落、结构与示例，已保留原作者署名并在此致谢。
 
-如果你认为署名不充分，请提交 Issue，我们将第一时间更新 README。
+如果你认为署名不充分，请提交 Issue，本人将第一时间更新 README。
 
 ## License
 

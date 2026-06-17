@@ -12,7 +12,7 @@
 ![Source: Anthropic Claude](https://img.shields.io/badge/source-Anthropic%20Claude-191919)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-## What This Skill Does
+## How It Works
 
 `trae-skill-creator` guides the creation and review of Trae skills through a practical framework:
 
@@ -24,16 +24,14 @@
 - Use evaluation-driven iteration to improve reliability
 - Split large guidance into reference files using progressive disclosure
 
-## When To Use It
-
-Use this skill when you want to:
+## Recommended Use Cases
 
 - Create a new Trae skill
 - Improve an existing Trae skill
 - Review a skill before publishing
-- Diagnose why a skill triggers incorrectly or fails to trigger
-- Refactor a large skill into clearer, smaller skills
-- Build reusable agent workflows with stronger operational boundaries
+- Diagnose wrong or missed triggers
+- Split a large skill into smaller, focused skills
+- Build more reliable, reusable Trae agent workflows
 
 ## Repository Structure
 
