@@ -41,8 +41,6 @@ trae-skill-creator/
 ├── LICENSE
 ├── README.md
 ├── README.en.md
-├── CHANGELOG.md
-├── CONTRIBUTING.md
 ├── references/
 │   ├── anti-patterns.md
 │   ├── evaluation-driven-workflow.md
@@ -53,13 +51,41 @@ trae-skill-creator/
 
 ## 安装
 
-把本目录复制到你的 Trae skills 目录下：
+### 方法一：通过 `npx skills add` 一键安装
+
+```bash
+npx skills add https://github.com/NicksonLin/trae-skill-creator.git
+```
+
+### 方法二：通过 Git 克隆
+
+Windows (PowerShell)：
+
+```powershell
+git clone https://github.com/NicksonLin/trae-skill-creator.git "$env:USERPROFILE\.trae\skills\trae-skill-creator"
+```
+
+macOS / Linux：
+
+```bash
+git clone https://github.com/NicksonLin/trae-skill-creator.git ~/.trae/skills/trae-skill-creator
+```
+
+### 方法三：手动复制
+
+把本目录复制到 Trae 的 skills 目录下：
 
 ```text
 .trae/skills/trae-skill-creator/
 ```
 
-安装完成后，在涉及 Skill 创建、改进或审查的场景中即可自动触发。
+### 验证安装
+
+重启 Trae 或重新加载 skills 后，在对话中输入与 Skill 创建、改进、审查相关的请求，本 Skill 应被自动触发。如果未触发，请检查：
+
+- 文件夹名是否完整为 `trae-skill-creator`
+- 是否存在 `SKILL.md` 文件
+- Trae 是否已重新加载 skills
 
 ## 核心原则
 

@@ -41,8 +41,6 @@ trae-skill-creator/
 ├── LICENSE
 ├── README.md
 ├── README.en.md
-├── CHANGELOG.md
-├── CONTRIBUTING.md
 ├── references/
 │   ├── anti-patterns.md
 │   ├── evaluation-driven-workflow.md
@@ -53,19 +51,47 @@ trae-skill-creator/
 
 ## Installation
 
+### Option 1: Install via `npx skills add`
+
+```bash
+npx skills add https://github.com/NicksonLin/trae-skill-creator.git
+```
+
+### Option 2: Clone via Git
+
+Windows (PowerShell):
+
+```powershell
+git clone https://github.com/NicksonLin/trae-skill-creator.git "$env:USERPROFILE\.trae\skills\trae-skill-creator"
+```
+
+macOS / Linux:
+
+```bash
+git clone https://github.com/NicksonLin/trae-skill-creator.git ~/.trae/skills/trae-skill-creator
+```
+
+### Option 3: Manual copy
+
 Copy this folder into your Trae skills directory:
 
 ```text
 .trae/skills/trae-skill-creator/
 ```
 
-After installation, the skill can be triggered when working on skill creation, skill improvement, or skill review tasks.
+### Verify installation
+
+After restarting Trae or reloading skills, send a request related to Skill creation, review, or improvement. The skill should trigger automatically. If it does not, check that:
+
+- The folder name is exactly `trae-skill-creator`
+- A `SKILL.md` file exists at the folder root
+- Trae has reloaded the skills list
 
 ## Core Principles
 
-### 1. Claude Is Already Smart
+### 1. The Agent Is Already Smart
 
-Only add context the model actually lacks. Every instruction should earn its place in the context window.
+Only add context the agent actually lacks. Every instruction should earn its place in the context window.
 
 ### 2. Evaluation-Driven, Failure-First
 
@@ -89,7 +115,7 @@ See `SKILL.md` for the full checklist.
 
 ## Recommended Workflow
 
-1. Run the task without a skill and record failure points
+1. Run the task without relying on a skill. Record the failure points.
 2. Write 3–5 evaluation cases (scenario, pass criteria, fail criteria)
 3. Create a minimal skill that passes those cases
 4. Add boundaries, examples, and structured I/O
@@ -106,7 +132,7 @@ This skill is built on top of publicly available official documentation and refe
 
 This repository reinterprets, restructures, and extends the original concepts with evaluation-driven, failure-first workflows and Trae-specific engineering constraints. Where passages, structural patterns, or examples were reused from the official Anthropic Skill Creator, the original authorship is retained and credited accordingly.
 
-If you believe proper credit has not been given, please open an issue and the README will be updated.
+If you believe the attribution is incomplete, please open an issue and we will update the README as soon as possible.
 
 ## License
 
