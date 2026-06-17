@@ -2,9 +2,11 @@
 
 # Trae Skill Creator
 
-> A reusable Trae skill for creating, reviewing, and improving AI agent skills with evaluation-driven best practices.
+> A Trae-tuned writing and review framework for creating, reviewing, and improving AI agent skills on Trae. It aims to reduce false and missed triggers when used on Trae, and is built on an evaluation-driven, failure-first methodology.
 
-一个用于创建、审查与改进 AI Agent Skill 的可复用 Trae Skill，基于「评估驱动、失败优先」的最佳实践。
+一个针对 Trae 调优的写作与体检框架，帮你创建、审查、改进 Trae 上的 AI Agent Skill。目标是减少在 Trae 使用中的误触发与漏触发，基于「评估驱动、失败优先」方法论。
+
+**Tuned for Trae** so your skills trigger and execute more reliably inside the Trae environment. You can also use it as a baseline optimizer when an existing skill underperforms on Trae.
 
 ![Source: Trae Docs](https://img.shields.io/badge/source-Trae%20Docs-blue)
 ![Source: Anthropic Claude](https://img.shields.io/badge/source-Anthropic%20Claude-191919)
